@@ -53,8 +53,8 @@ h1 {
   font-weight: 600;
 }
 
-.login__btn:first-child {
-  margin-top: 20px;
+.login__btn:hover {
+  background-color: pink;
 }
 
 .login__footer {

@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Login.module.css';
 import logo from '../../image/logo.png';
+import { useHistory } from 'react-router';
 
 const Login = ({ authService }) => {
+  const history = useHistory();
+  const goToMaker = (userId, displayName) => {
+    history.push({
+      pathname: '/maker',
+      state: { id: userId, displayName: displayName },
+    });
+  };
   const onLogin = (event) => {
     authService //
       .login(event.currentTarget.textContent)
-      .then(console.log);
+      .then((data) => {
+        goToMaker(data.user.uid, data.user.reloadUserInfo.displayName);
+        console.log(data.user.reloadUserInfo.displayName);
+      });
   };
+  useEffect(() => {
+    authService.onAuthChange((user) => {
+      user && goToMaker(user.uid);
+    });
+  });
   return (
     <div className={styles.login}>
       <header className={styles.login__header}>

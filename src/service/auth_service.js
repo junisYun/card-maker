@@ -17,6 +17,16 @@ class AuthService {
     const auth = getAuth();
     return signInWithPopup(auth, provider);
   }
+  logout() {
+    const auth = getAuth();
+    auth.signOut();
+  }
+  onAuthChange(onUserChanged) {
+    const auth = getAuth();
+    auth.onAuthStateChanged((user) => {
+      onUserChanged(user);
+    });
+  }
 }
 
 export default AuthService;

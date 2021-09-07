@@ -1,0 +1,14 @@
+.maker__header {
+  display: flex;
+  flex-direction: column;
+  background-color: #385461;
+  align-items: center;
+  padding: 10px 10px;
+  color: white;
+}
+
+.maker__footer {
+  background-color: #385461;
+  text-align: center;
+  color: white;
+}
