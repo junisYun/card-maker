@@ -1,7 +1,13 @@
 import React from 'react';
 import styles from './Login.module.css';
 import logo from '../../image/logo.png';
-const Login = () => {
+
+const Login = ({ authService }) => {
+  const onLogin = (event) => {
+    authService //
+      .login(event.currentTarget.textContent)
+      .then(console.log);
+  };
   return (
     <div className={styles.login}>
       <header className={styles.login__header}>
@@ -11,8 +17,12 @@ const Login = () => {
       <main className={styles.login__main}>
         <h1 style={{ fontSize: '2.5rem' }}>Login</h1>
         <div className={styles.login__btns}>
-          <div className={styles.login__btn}>Google</div>
-          <div className={styles.login__btn}>Github</div>
+          <div className={styles.login__btn} onClick={onLogin}>
+            Google
+          </div>
+          <div className={styles.login__btn} onClick={onLogin}>
+            Github
+          </div>
         </div>
       </main>
       <footer className={styles.login__footer}>
