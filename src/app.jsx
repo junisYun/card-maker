@@ -8,7 +8,7 @@ function App({ authService }) {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
+        <Route exact path={['/', '/card-maker']}>
           <Login authService={authService} />
         </Route>
         <Route exact path="/maker">
