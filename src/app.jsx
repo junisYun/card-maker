@@ -11,7 +11,7 @@ function App({ authService }) {
         <Route exact path={['/', '/card-maker']}>
           <Login authService={authService} />
         </Route>
-        <Route exact path="/maker">
+        <Route exact path="/card-maker/maker">
           <Maker authService={authService} />
         </Route>
       </Switch>

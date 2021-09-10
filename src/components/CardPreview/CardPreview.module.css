@@ -31,7 +31,7 @@ ul {
   color: white;
   display: flex;
   align-items: center;
-  max-width: 40rem;
+  max-width: 38rem;
 }
 .card.dark {
   background-color: black;

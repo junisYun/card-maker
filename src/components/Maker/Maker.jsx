@@ -6,41 +6,41 @@ import CardMaker from '../CardMaker/CardMaker';
 import CardPreview from '../CardPreview/CardPreview';
 
 const Maker = ({ authService }) => {
-  const [card, setCard] = useState([
-    {
+  const [card, setCard] = useState({
+    1: {
       id: 1,
       name: 'Ratta1',
       company: 'Samsung',
       professional: 'Software Enginner',
       email: 'junis.yun94@gmail.com',
-      theme: 'dark',
+      theme: 'Dark',
       message: '"don`t forget to code your dream"',
       fileName: 'ratta',
       fileURL: 'ratta.png',
     },
-    {
+    2: {
       id: 2,
       name: 'Ratta2',
       company: 'Samsung',
       professional: 'Software Enginner',
       email: 'junis.yun94@gmail.com',
-      theme: 'colorful',
+      theme: 'Colorful',
       message: '"don`t forget to code your dream"',
       fileName: 'ratta',
       fileURL: null,
     },
-    {
+    3: {
       id: 3,
       name: 'Ratta3',
       company: 'Samsung',
       professional: 'Software Enginner',
       email: 'junis.yun94@gmail.com',
-      theme: 'light',
+      theme: 'Light',
       message: '"don`t forget to code your dream"',
       fileName: 'ratta',
       fileURL: null,
     },
-  ]);
+  });
   const [displayName, setDisplayName] = useState('');
   const history = useHistory();
   const onLogout = () => {
@@ -54,6 +54,18 @@ const Maker = ({ authService }) => {
       }
     });
   }, [history, authService]);
+
+  const deleteCard = (deleteCard) => {
+    const updated = { ...card };
+    delete updated[deleteCard.id];
+    setCard(updated);
+  };
+  const createOrupdateCard = (updatedCard) => {
+    console.log(updatedCard);
+    const updated = { ...card };
+    updated[updatedCard.id] = updatedCard;
+    setCard(updated);
+  };
   return (
     <section className={styles.maker}>
       <div className={styles.maker__header}>
@@ -65,7 +77,13 @@ const Maker = ({ authService }) => {
         </button>
       </div>
       <div className={styles.maker__main}>
-        <CardMaker className={styles.card__maker} card={card} />
+        <CardMaker
+          className={styles.card__maker}
+          card={card}
+          addCard={createOrupdateCard}
+          deleteCard={deleteCard}
+          updateCard={createOrupdateCard}
+        />
         <CardPreview className={styles.card__preview} card={card} />
       </div>
       <div className={styles.maker__footer}>
