@@ -5,15 +5,15 @@ import CardEdit from '../CardEdit/CardEdit';
 import ImageFileInput from '../Image_file_input/ImageFileInput';
 import styles from './CardMaker.module.css';
 
-const CardMaker = ({ card, addCard, updateCard, deleteCard }) => {
+const CardMaker = ({ FileInput, card, addCard, updateCard, deleteCard }) => {
   return (
     <section className={styles.maker}>
       <h1 className={styles.title}>Card Maker</h1>
       <div className={styles.maker__list}>
         {Object.keys(card).map((key) => {
-          return <CardEdit key={key} card={card[key]} deleteCard={deleteCard} updateCard={updateCard} />;
+          return <CardEdit key={key} FileInput={FileInput} card={card[key]} deleteCard={deleteCard} updateCard={updateCard} />;
         })}
-        <CardAdd onAdd={addCard} />
+        <CardAdd FileInput={FileInput} onAdd={addCard} />
       </div>
     </section>
   );

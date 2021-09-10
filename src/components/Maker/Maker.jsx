@@ -5,7 +5,7 @@ import { useHistory } from 'react-router';
 import CardMaker from '../CardMaker/CardMaker';
 import CardPreview from '../CardPreview/CardPreview';
 
-const Maker = ({ authService }) => {
+const Maker = ({ FileInput, authService }) => {
   const [card, setCard] = useState({
     1: {
       id: 1,
@@ -41,13 +41,11 @@ const Maker = ({ authService }) => {
       fileURL: null,
     },
   });
-  const [displayName, setDisplayName] = useState('');
   const history = useHistory();
   const onLogout = () => {
     authService.logout();
   };
   useEffect(() => {
-    setDisplayName(history.location.state.displayName);
     authService.onAuthChange((user) => {
       if (!user) {
         history.push('/card-maker');
@@ -71,7 +69,6 @@ const Maker = ({ authService }) => {
       <div className={styles.maker__header}>
         <img className={styles.maker__img} src={logo} alt="logo" />
         <h1 className={styles.maker__title}>Business Card Maker</h1>
-        <span>{displayName}</span>
         <button className={styles.maker__logoutBtn} onClick={onLogout}>
           Logout
         </button>
@@ -79,6 +76,7 @@ const Maker = ({ authService }) => {
       <div className={styles.maker__main}>
         <CardMaker
           className={styles.card__maker}
+          FileInput={FileInput}
           card={card}
           addCard={createOrupdateCard}
           deleteCard={deleteCard}

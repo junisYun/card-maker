@@ -5,18 +5,17 @@ import { useHistory } from 'react-router';
 
 const Login = ({ authService }) => {
   const history = useHistory();
-  const goToMaker = (userId, displayName) => {
+  const goToMaker = (userId) => {
     history.push({
       pathname: '/card-maker/maker',
-      state: { id: userId, displayName: displayName },
+      state: { id: userId },
     });
   };
   const onLogin = (event) => {
     authService //
       .login(event.currentTarget.textContent)
       .then((data) => {
-        goToMaker(data.user.uid, data.user.reloadUserInfo.displayName);
-        console.log(data.user.reloadUserInfo.displayName);
+        goToMaker(data.user.uid);
       });
   };
   useEffect(() => {
