@@ -6,4 +6,5 @@ const config = {
   databaseURL: process.env.REACT_APP_FIREBASE_DATABASEURL,
   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
 };
-export const firebaseApp = initializeApp(config);
+const firebaseApp = initializeApp(config);
+export default firebaseApp;

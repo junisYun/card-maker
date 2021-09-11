@@ -1,6 +1,7 @@
 .maker {
   flex-basis: 50%;
   background-color: #ffeae8;
+  overflow-y: auto;
 }
 .title {
   width: 100%;
