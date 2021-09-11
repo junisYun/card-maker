@@ -10,7 +10,10 @@ const CardPreview = ({ card }) => {
         {Object.keys(card).map((key) => {
           const url = card[key].fileURL || DEFAULT_IMAGE;
           return (
-            <li className={`${styles.card} ${getStyles(card[key].theme)}`} key={card[key].id}>
+            <li
+              className={`${styles.card} ${getStyles(card[key].theme)}`}
+              key={card[key].id}
+            >
               <img className={styles.img} src={url} alt="profile_photo" />
               <div className={styles.description}>
                 <h2 className={styles.name}>{card[key].name}</h2>

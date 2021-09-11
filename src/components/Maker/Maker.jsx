@@ -9,6 +9,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
   const [card, setCard] = useState({});
   const history = useHistory();
   const historyState = history?.location?.state;
+  const [displayName, setDisplayName] = useState('');
   const [userId, setUserId] = useState(historyState && historyState.id);
 
   console.log(historyState);
@@ -30,6 +31,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       } else {
         history.push('/card-maker');
       }
+      setDisplayName(user.displayName);
     });
   }, [history, authService]);
 
@@ -51,6 +53,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       <div className={styles.maker__header}>
         <img className={styles.maker__img} src={logo} alt="logo" />
         <h1 className={styles.maker__title}>Business Card Maker</h1>
+        <p style={{ fontWeight: 'bold', color: 'skyblue' }}>{displayName}</p>
         <button className={styles.maker__logoutBtn} onClick={onLogout}>
           Logout
         </button>

@@ -32,7 +32,7 @@ ul {
   color: white;
   display: flex;
   align-items: center;
-  max-width: 38rem;
+  max-width: 480px;
 }
 .card.dark {
   background-color: black;
@@ -52,6 +52,7 @@ ul {
   margin: 20px 20px;
   width: 75%;
   height: 75%;
+  border-radius: 20px;
 }
 .description {
   flex: 70%;
@@ -60,4 +61,16 @@ ul {
   width: 90%;
   height: 2px;
   background-color: burlywood;
+}
+
+@media screen and (max-width: 400px) {
+  .name {
+    font-size: 20px;
+  }
+  .company,
+  .professional,
+  .email,
+  .message {
+    font-size: 13px;
+  }
 }

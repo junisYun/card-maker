@@ -30,7 +30,7 @@ const Login = ({ authService }) => {
         <h1 className={styles.login__title}>Business Card Maker</h1>
       </header>
       <main className={styles.login__main}>
-        <h1 style={{ fontSize: '2.5rem' }}>Login</h1>
+        <h1>Login</h1>
         <div className={styles.login__btns}>
           <div className={styles.login__btn} onClick={onLogin}>
             Google
